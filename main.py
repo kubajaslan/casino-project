@@ -124,12 +124,12 @@ def show_all_cards(player_hand, dealer_hand):
     print("\nPlayer's value:", player_hand.value)
 
 
-def player_busts(player, dealer, chips):
+def player_busts(chips):
     print("player busts!")
     chips.lose_bet()
 
 
-def dealer_busts(player, dealer, chips):
+def dealer_busts(chips):
     print("dealer busts!")
     chips.win_bet()
 
@@ -182,10 +182,10 @@ while True:
 
         hit_or_stand(deck, player_hand)
 
-        show_all_cards(player_hand, dealer_hand)
+        show_partial_cards(player_hand, dealer_hand)
 
         if player_hand.value > 21:
-            player_busts(player_hand, dealer_hand, player_account)
+            player_busts(player_account)
             break
 
     if player_hand.value <= 21:
